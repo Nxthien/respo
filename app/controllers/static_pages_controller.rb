@@ -4,7 +4,11 @@ class StaticPagesController < ApplicationController
   def show
     if current_user.present?
       if current_user.is_a? Admin
-        redirect_to admin_root_path
+        if current_user.organizations.present?
+          redirect_to organization_path current_user.organizations.first.id
+        else
+          redirect_to new_organization_path
+        end
       end
     end
     respond_to do |format|

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     controllers: {sessions: "sessions", passwords: "passwords"},
     path_names: {sign_in: "login", sign_out: "logout"}
   draw :api
-  draw :admin
   root "static_pages#show"
+  draw :manager
   resources :static_pages
 end
