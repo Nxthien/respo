@@ -60,7 +60,6 @@ export default class FormEdit extends React.Component {
        axios.post(url, {
         program: {
           name: this.refs.nameField.value,
-          parent_id: this.state.parent
         }, authenticity_token: ReactOnRails.authenticityToken()
       }, app_constants.AXIOS_CONFIG)
       .then(response => {
