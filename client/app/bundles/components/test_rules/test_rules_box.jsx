@@ -49,6 +49,7 @@ export default class TestRuleBox extends React.Component {
       </button>
     )
 
+<<<<<<< HEAD:client/app/bundles/components/test_rules/test_rules_box.jsx
     let modal;
     if (this.state.test_rule.id){
       modal = (
@@ -63,6 +64,12 @@ export default class TestRuleBox extends React.Component {
           test_rule
           title={I18n.t('test_rules.title.create')}
           afterCreateTestRule={this.afterCreateTestRule.bind(this)}/>
+=======
+    const LinkToCategory = ({griddleKey}) => {
+      let {id, name} = this.state.categories[griddleKey]
+      return(
+        <a href={CATEGORY_URL + index}>{name}</a>
+>>>>>>> Create Question Answer:client/app/bundles/components/categories/categories_box.jsx
       )
     }
 
@@ -98,6 +105,7 @@ export default class TestRuleBox extends React.Component {
                   components={{Layout: NewLayout}}
                   styleConfig={table_constants.styleConfig}>
                   <RowDefinition>
+<<<<<<< HEAD:client/app/bundles/components/test_rules/test_rules_box.jsx
                     <ColumnDefinition id='name' title={I18n.t('programs.name')}/>
                     <ColumnDefinition id='total_question'
                       title={I18n.t('test_rules.form.total_question')} />
@@ -109,6 +117,12 @@ export default class TestRuleBox extends React.Component {
                       title={I18n.t('test_rules.form.opportunity')} />
                     <ColumnDefinition id='number_of_test'
                       title={I18n.t('test_rules.form.number_of_test')} />
+=======
+                    <ColumnDefinition id='name' title={I18n.t('programs.name')}
+                      customComponent={LinkToCategory}/>
+                    <ColumnDefinition id='description'
+                      title={I18n.t('courses.description')} />
+>>>>>>> Create Question Answer:client/app/bundles/components/categories/categories_box.jsx
                     <ColumnDefinition id='edit' title={I18n.t('buttons.edit')}
                       customComponent={ButtonEdit}/>
                     <ColumnDefinition id='delete'

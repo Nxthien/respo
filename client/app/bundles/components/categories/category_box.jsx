@@ -1,10 +1,8 @@
 import React from 'react';
 import axios from 'react';
-import CategoryPolicy from 'policy/category_policy';
 import * as app_constants from 'constants/app_constants';
-import * as category_constants from './constants/category_constants';
+import * as category_constands from './category_constants';
 import FormQuestion from '../questions/form_question';
-
 export default class CategoryBox extends React.Component {
   constructor(props) {
     super(props)
@@ -19,7 +17,7 @@ export default class CategoryBox extends React.Component {
 
   render() {
     return (
-      <div className='row'>
+      <div className='row languages admin-languages'>
         <div className='col-md-12'>
           <div className='box box-success'>
             <div className='box-header with-border'>
@@ -37,12 +35,9 @@ export default class CategoryBox extends React.Component {
 
             <div className='box-body no-padding'>
               <div className='create-question'>
-                <CategoryPolicy permit={[
-                  {controller: 'questions', action: ['create'], target: 'children'}]}>
-                  <FormQuestion question={this.state.question}
-                    category={this.state.category}
-                    afterCreateQuestion={this.afterCreateQuestion.bind(this)}/>
-                </CategoryPolicy>
+                <FormQuestion question={this.state.question}
+                  category={this.state.category}
+                  afterCreateQuestion={this.afterCreateQuestion.bind(this)}/>
               </div>
               <div className='list-question'>
               </div>
