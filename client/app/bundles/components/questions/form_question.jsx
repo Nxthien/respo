@@ -36,7 +36,8 @@ export default class FormQuestion extends React.Component {
 
     return (
       <div className='block-question'>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={this.handleSubmit.bind(this)}
+          className='create-question'>
           <Errors errors={this.state.errors} />
           <div className='block-content'>
             <div className='clearfix question'>
@@ -138,8 +139,12 @@ export default class FormQuestion extends React.Component {
       headers: {'Accept': 'application/json'}
     })
     .then(response => {
+      $('.create-question input').val('');
+      $('.form-check .check').removeClass('check-enable').addClass('check-disable')
       this.props.afterCreateQuestion(response.data.question);
     })
-    .catch(error => this.setState({errors: error.response.data.message}));
+    .catch(error => {
+      this.setState({errors: error.response.data.message})
+    });
   }
 }

@@ -23,7 +23,7 @@ export default class FormAnswer extends React.Component {
                 </a>
               </div>
             </li>
-            <li className='correct-answer'>
+            <li className='correct-answer form-check'>
               <div className={`check ${check}`}>
                 <a onClick={this.afterClickCorrectAnswer.bind(this)}>
                   <i className='fa fa-check'></i>

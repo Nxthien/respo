@@ -17,13 +17,45 @@ $c-gray: #808080;
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
-  padding-left: 15px;
   padding-right: 15px;
+  position: relative;
+}
+
+.show-question {
+  padding: 0 !important;
+  padding-right: 15px !important;
+}
+
+.show-question .side-left {
+  background: $c-ddd;
+  height: 100%;
+  padding-top: 30px;
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  z-index: 1000;
+}
+
+.delete-question {
+  padding-top: 15px;
+
+  a {
+    border: 1px solid $c-red;
+    border-radius: 50%;
+    color: $c-red;
+    cursor: pointer;
+    padding: 5px 8px;
+  }
+}
+
+.side-right .question-content {
+  padding-top: 20px;
 }
 
 .list-answers {
   .tool-bar {
     display: inline-block;
+
   }
 
   .side-right {
