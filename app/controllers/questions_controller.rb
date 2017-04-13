@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   before_action :load_supports
   before_action :find_category, only: [:new, :create]
   before_action :find_question, only: :destroy
+
   def new
   end
 
@@ -17,6 +18,25 @@ class QuestionsController < ApplicationController
         else
           render json: {message: flash_message("not_created"),
             errors: question.errors}, status: :unprocessable_entity
+        end
+      end
+    end
+  end
+
+  def update
+    binding.pry
+    question = @question_supports.question
+    respond_to do |format|
+      format.json do
+        if question.update_attributes question_params
+          render json: {
+            message: flash_message("updated"),
+            question: Serializers::Questions::QuestionsSerializer
+              .new(object: question).serializer
+          }
+        else
+          render json: {message: flash_message("not_updated"),
+            errors: category.errors}, status: :unprocessable_entity
         end
       end
     end
@@ -57,7 +77,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    unless @question_support.question
+    unless @question_supports.question
       respond_to do |format|
         format.html{redirect_to categories_path}
         format.json do

@@ -1,9 +1,5 @@
 class CategoryPolicy < ApplicationPolicy
-  def index?
-    super
-  end
-
-  def show?
+  def create?
     super
   end
 end

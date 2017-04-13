@@ -22,7 +22,7 @@ export default class AnswerShow extends React.Component {
         <div className='tool-bar col-xs-4'>
           <ul className='list-action'>
             <li className='correct-answer'>
-              <div className={`check ${check}`}>
+              <div className={`check ${check} pointer`}>
                 <i className='fa fa-check'></i>
               </div>
             </li>

@@ -3,19 +3,18 @@ $c-ddd: #ddd;
 $c-green: #008000;
 $c-eee: #eee;
 $c-gray: #808080;
-
-.block-question {
-  padding: 20px 100px;
-}
+$c-blue: #428bca;
+$c-white: #fff;
 
 .block-content {
-  padding: 20px 40px;
+  padding: 10px 0;
 }
 
 .question {
   background: $c-eee;
   margin-left: auto;
   margin-right: auto;
+  min-height: 150px;
   padding: 15px;
   padding-right: 15px;
   position: relative;
@@ -40,9 +39,23 @@ $c-gray: #808080;
   padding-top: 15px;
 
   a {
+    background: $c-red;
     border: 1px solid $c-red;
     border-radius: 50%;
-    color: $c-red;
+    color: $c-white;
+    cursor: pointer;
+    padding: 5px 8px;
+  }
+}
+
+.edit-question {
+  padding-top: 20px;
+
+  a {
+    background: $c-blue;
+    border: 1px solid $c-blue;
+    border-radius: 50%;
+    color: $c-white;
     cursor: pointer;
     padding: 5px 8px;
   }
@@ -70,6 +83,7 @@ $c-gray: #808080;
   text-align: right;
 
   .action-delete {
+    background: $c-red;
     border: 1px solid $c-red;
     border-radius: 50%;
     cursor: pointer;
@@ -86,13 +100,17 @@ $c-gray: #808080;
 
 .action-delete {
   a {
-    color: $c-red;
+    color: $c-white;
   }
 }
 
 .check {
   cursor: pointer;
   padding: 0 7px;
+}
+
+.pointer {
+  cursor: default;
 }
 
 .check-disable {
@@ -106,12 +124,13 @@ $c-gray: #808080;
 }
 
 .check-enable {
+  background: $c-green;
   border: 1px solid $c-green;
   border-radius: 50%;
-  color: $c-green;
+  color: $c-white;
 
   a {
-    color: $c-green;
+    color: $c-white;
   }
 }
 

@@ -37,6 +37,7 @@ export default class FormAnswer extends React.Component {
             <div className='form-input-answer'>
               <input type='text'
                 placeholder={I18n.t('questions.buttons.input_answer')}
+                value={this.state.answer.content}
                 onChange={this.handleChange.bind(this)}
                 className='form-control' name='content' />
             </div>
