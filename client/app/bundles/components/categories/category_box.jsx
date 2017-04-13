@@ -18,17 +18,8 @@ export default class CategoryBox extends React.Component {
   }
 
   render() {
-    const question_url = app_constants.APP_NAME + category_constants.CATEGORY_PATH
-      + this.props.category.id + '/' + category_constants.QUESTION_PATH
-    let list_questions = this.props.category.questions.map((question, index) => {
-      return (
-        <QuestionShow question={question} key={index} index={index}
-          url={question_url + '/' + question.id}
-          afterDeleteQuestion={this.afterDeleteQuestion.bind(this)}/>
-      )
-    })
     return (
-      <div className='row languages admin-languages'>
+      <div className='row'>
         <div className='col-md-12'>
           <div className='box box-success'>
             <div className='box-header with-border'>
@@ -51,7 +42,6 @@ export default class CategoryBox extends React.Component {
                   afterCreateQuestion={this.afterCreateQuestion.bind(this)}/>
               </div>
               <div className='list-question'>
-                {list_questions}
               </div>
             </div>
           </div>
@@ -60,25 +50,8 @@ export default class CategoryBox extends React.Component {
     )
   }
 
-  afterDeleteQuestion(_question) {
-    _.remove(this.state.category.questions, function(question) {
-      return question.id = _question
-    });
-    this.setState({
-      category: this.state.category
-    })
-  }
-
-  afterUpdateQuestion(new_question) {
-    let index = this.state.category.questions
-      .findIndex(question => question.id === new_question.id);
-    this.state.category.questions[index] = new_question;
-    this.setState({
-      category: this.state.category
-    });
-  }
-
   afterCreateQuestion(question) {
+    debugger
     this.state.category.questions.push(question)
     this.setState({
       category: this.state.category
